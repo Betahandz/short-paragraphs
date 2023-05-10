@@ -1,13 +1,168 @@
-body {
+@font-face {
+  font-family: pro;
+  src: url(./font/JosefinSans-Bold.ttf);
+}
+@font-face {
+  font-family: lite;
+  src: url(./font/JosefinSans-Light.ttf);
+}
+@font-face {
+  font-family: med;
+  src: url(./font/JosefinSans-Medium.ttf);
+}
+@property --color1 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: red;
+}
+@property --color2 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: blue;
+}
+* {
+  padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+  resize: none;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+button {
+  cursor: pointer;
+  height: 24px;
+  padding: 0 28px;
+}
+
+body {
+  min-height: 100vh;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+  background-color: rgb(204, 202, 202);
+}
+
+.master {
+  width: 100%;
+  height: 150px;
+  overflow: hidden;
+  background-color: rgb(20, 30, 40);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.master .mt {
+  text-align: center;
+  font-family: pro;
+  color: lightblue;
+  font-size: 50px;
+}
+@media screen and (max-width: 590px) {
+  .master .mt {
+    font-size: 10vw;
+  }
+}
+
+.loading {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgb(20, 30, 40);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s;
+}
+.loading .l-t {
+  color: lightblue;
+  font-family: pro;
+  font-size: 80px;
+}
+
+.rmLoading {
+  border-radius: 50%;
+  transform: translateY(-100%);
+}
+
+@media screen and (max-width: 768px) {
+  .loading .l-t {
+    font-size: 10vw;
+  }
+}
+.myForm {
+  text-align: center;
+  padding: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+.myForm label {
+  font-family: med;
+  font-size: 30px;
+  color: rgb(20, 30, 40);
+}
+.myForm label input {
+  margin-left: 10px;
+  border: none;
+  outline: none;
+  caret-color: skyblue;
+  background-color: rgb(20, 30, 40);
+  color: skyblue;
+  padding: 10px;
+  font-family: med;
+  border-radius: 20px;
+}
+.myForm label input::placeholder {
+  color: white;
+}
+.myForm button {
+  --color1: skyblue;
+  --color2: rgb(20, 30, 40);
+  background: linear-gradient(90deg, var(--color1), var(--color2));
+  color: white;
+  font-family: med;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  font-family: med;
+  transition: --color1 0.3s 0.1s, --color2 0.2s;
+}
+.myForm button:hover {
+  --color2: skyblue;
+  --color1: rgb(20, 30, 40);
+}
+
+@media screen and (max-width: 590px) {
+  .myForm {
+    flex-direction: column;
+    gap: 5px;
+  }
+  .myForm input {
+    width: 90%;
+  }
+}
+.display {
+  min-height: 400px;
+  background-color: rgb(20, 30, 40);
+  border-radius: 30px 10px;
+  max-width: 800px;
+  margin: auto;
+  color: white;
+  padding: 20px;
+}
+.display .lorem {
+  font-family: med;
+  font-size: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+@media screen and (max-width: 590px) {
+  .display {
+    width: 90%;
+  }
 }
